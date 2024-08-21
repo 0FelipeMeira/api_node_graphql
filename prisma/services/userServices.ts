@@ -15,17 +15,27 @@ export const userService = {
   createUser: async (data: createUserType) => {
     return await prisma.user.create({ data });
   },
-  updateUser: async (id: string, data: updateUserType) => {
+  updateUser: async (id: number, data: updateUserType) => {
     const intId = Number(id);
     return await prisma.user.update({
       where: { id: intId },
       data,
     });
   },
-  deleteUserById: async (id: string) => {
+  deleteUserById: async (id: number) => {
     const intId = Number(id);
     return await prisma.user.delete({
       where: { id: intId },
     });
   },
 };
+
+async function main() {
+  const service = userService;
+  const user = await service.getUserById(1);
+  console.log(user);
+}
+
+// main()
+//   .then()
+//   .catch((err) => console.log(err));

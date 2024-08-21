@@ -1,6 +1,6 @@
 import { gql } from "apollo-server-core";
-import resolvers from "./src/graphql/resolvers";
-import typeDefs from "./src/graphql/typeDefs";
+import resolvers from "./graphql/resolvers";
+import typeDefs from "./graphql/typeDefs";
 import express from "express";
 
 // const express = require("express");
