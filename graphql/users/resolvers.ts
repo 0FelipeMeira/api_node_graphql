@@ -1,11 +1,13 @@
+import { PrismaClient } from "@prisma/client";
 import { userService } from "../../prisma/services/userServices";
 import { parseNumberOrNull } from "../../utils/parseNumberOrNull";
 
 const service = userService;
+const prisma = new PrismaClient();
 
 const queries = {
   getUsers: () => {
-    return service.getAllUsers();
+    return prisma.user.findMany();
   },
   getUser: (parent: any, args: { id: string }, context: any) => {
     const id = parseNumberOrNull(args.id);

@@ -29,13 +29,3 @@ export const userService = {
     });
   },
 };
-
-async function main() {
-  const service = userService;
-  const user = await service.getUserById(1);
-  console.log(user);
-}
-
-// main()
-//   .then()
-//   .catch((err) => console.log(err));
